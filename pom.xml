@@ -15,6 +15,7 @@
 	<description>Library Management System</description>
 	<properties>
 		<java.version>17</java.version>
+		<start-class>com.librarymgmnt.lms.LibrarymgmntApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -94,7 +95,16 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<mainClass>com.librarymgmnt.lms.LibrarymgmntApplication</mainClass>
+					<layout>JAR</layout>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+			            	<goal>repackage</goal>
+			        	</goals>
+					</execution>
+			    </executions>
 			</plugin>
 		</plugins>
 	</build>
