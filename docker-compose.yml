@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+   api_service:
+      build: .
+      restart: always
+      ports:
+         - 8081:8080
+      depends_on:
+         - mongo
+   mongo:
+      image: "mongodb/mongodb-community-server"
+      restart: always
+      environment:
+         - MONGO_INITDB_DATABASE=library
+      ports: 
+         - 27016:27017
+      volumes:
+         - ./mongodb:/data/db
