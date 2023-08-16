@@ -1,0 +1,23 @@
+.flex{
+    height: 100vh;
+    .row{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        .banner{
+            background: var(--primary-color);
+        }
+        .login{
+            // background: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .form-card{
+                width: 80%;
+                input{
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+}

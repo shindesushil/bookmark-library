@@ -1,0 +1,7 @@
+<app-pending-card 
+    *ngFor="let record of pendingBorrows" 
+    [source]="record"
+    (onApprove)="handleApprove($event)"
+    (onReject)="handleReject($event)"
+>  
+</app-pending-card>

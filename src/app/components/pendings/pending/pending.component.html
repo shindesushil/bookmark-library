@@ -1,0 +1,36 @@
+<div class="row wrapper">
+    <div class="col-md-2 secondary-bg p-0 pt-2 fixed menu-area">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+              <a 
+                class="nav-link" 
+                aria-current="page"
+                routerLink="/pending"
+                routerLinkActive="active"
+                [routerLinkActiveOptions] = "{exact: true}"
+              >
+                Borrows  
+                <span class="badge text-bg-danger" style="font-size: 15px;">
+                    {{pendingService.getBorrowsCount()}}
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a 
+                class="nav-link"
+                routerLink="/pending/return"
+                routerLinkActive="active"
+                [routerLinkActiveOptions] = "{exact: true}"
+              >
+                Returns
+                <span class="badge text-bg-danger" style="font-size: 15px;">
+                  {{pendingService.getReturnsCount()}}
+                </span>
+              </a>
+            </li>
+          </ul>
+    </div>
+    <div class="col-md-10 work-area">
+      <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="flex">
+    <div class="row">
+        <div class="col-md-8 everything-center banner">
+            <h1>Bookmark Library.</h1>
+        </div>
+        <div class="col-md-4 login pt-4">
+            <h4 class="mt-4">Welcome Admin.</h4>
+            <p>Provide credentials to start managing.</p>
+            <div class="card form-card p-4">
+                <form class="form" action="#">
+                    <div class="form-group py-2">
+                        <label for="username">Email</label>
+                        <input 
+                            type="email" name="username" 
+                            class="form-control border-0 border-bottom"
+                            placeholder="Enter Your Email."
+                            required
+                            [(ngModel)]="username"
+                        >
+                    </div>
+                    <div class="form-group py-2">
+                        <label for="password">Password</label>
+                        <input 
+                            type="password" name="password" 
+                            class="form-control border-0 border-bottom"
+                            placeholder="Enter Your Password."
+                            required
+                            [(ngModel)]="password"
+                        >
+                    </div>
+                    <div class="form-group py-2">
+                        <button 
+                            class="btn primary-button"
+                            (click) = "handleLogin()"
+                        >Login</button> <br>
+                        <a class="link" style="font-size: 12px;">Forgot password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

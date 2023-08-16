@@ -1,0 +1,23 @@
+<div class="row wrapper">
+    <div class="col-md-2 secondary-bg p-0 pt-2 menu-area">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link"
+                routerLink="/subscriptions"
+                routerLinkActive="active"
+                [routerLinkActiveOptions] = "{exact: true}"
+              >All Subscriptions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" 
+                routerLink="/subscriptions/add"
+                routerLinkActive="active"
+                [routerLinkActiveOptions] = "{exact: true}"
+              >Add Subscriptions</a>
+            </li>
+          </ul>
+    </div>
+    <div class="col-md-10 work-area">
+      <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<app-pending-card 
+    *ngFor="let record of pendingReturns" 
+    [source]="record"
+    (onApprove)="handleApprove($event)"
+>  
+</app-pending-card>

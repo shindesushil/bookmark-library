@@ -1,0 +1,51 @@
+<div class="nav-container primary-bg fixed" style="width: 100%;">
+    <div class="container" style="display: flex;justify-content: space-between;">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" routerLink="/">Bookmark Library</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a 
+                    class="nav-link" 
+                    routerLink="/"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"
+                >Home</a>
+                  <a 
+                    class="nav-link" 
+                    routerLink="/books"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: false}"
+                >Books</a>
+                  <a 
+                    class="nav-link" 
+                    routerLink="/subscriptions"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: false}"
+                >Subscriptions</a>
+                  <a 
+                    class="nav-link" 
+                    routerLink="/pending"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: false}"
+                  >
+                    Pending
+                    <span class="badge text-bg-danger" style="font-size: 15px;">
+                      {{pendingService.getTotalCount()}}
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="everything-center">
+            <button 
+              class="btn float-end secondary-button"
+              (click)="handleLogout()"
+            >Logout</button>
+          </div>
+    </div>
+</div>

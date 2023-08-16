@@ -1,0 +1,57 @@
+<div *ngIf="data">
+    <div class="card pending-card p-2 mt-2">
+        <div class="row">
+            <div class="col-md-4 border-end">
+                <div class="row">
+                    <div class="col everything-center">
+                        <img 
+                            [src]="getImageData(data.book.image)" 
+                            alt="data.book.name"
+                            class="card-img"
+                        >
+                    </div>
+                    <div 
+                        class="col" 
+                        style="display: flex;flex-direction: column;justify-content:center"
+                    >
+                        <h5>{{data.book.name}}</h5>
+                        <p 
+                            class="text-secondary" 
+                            style="font-size: 12px;"
+                        >{{data.book.author}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 everything-center">
+                <button 
+                    class="btn btn-success"
+                    (click)="handleApprove(data.recordDetails.id)"
+                >Approve</button>
+                <button 
+                    class="btn btn-danger ms-1"
+                    (click)="handleReject(data.recordDetails.id)"
+                    *ngIf="data.recordDetails.status === 'Pending Approval'"
+                >Reject</button>
+            </div>
+            <div class="col-md-4 border-start">
+                <div class="row">
+                    <div 
+                        class="col"
+                        style="display: flex;flex-direction: column;justify-content:center;align-items:end"
+                    >
+                        <h5>{{data.user.firstName + " " + data.user.lastName}}</h5>
+                    </div>
+                    <div 
+                        class="col" 
+                    >
+                        <img 
+                            [src]="getImageData(data.user.image)" 
+                            alt="data.book.name"
+                            class="card-img"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

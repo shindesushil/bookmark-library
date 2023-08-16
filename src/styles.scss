@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+// @import "~font-awesome/css/font-awesome.css";
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --primary-color: #FFB6B9;
+    --secondary-color: #FAE3D9;
+    --tertiary-color: #BBDED6;
+    --quaternary-color: #61C0BF;
+}
+
+.primary-button{
+    background: var(--primary-color);
+}
+.primary-button:hover{
+    background: #fff;
+    border-color: #000;
+}
+.secondary-button{
+    background: var(--secondary-color);
+    transition: all 200ms;
+}
+.secondary-button:hover{
+    background: #fff;
+    border-color: #000;
+}
+.tertiary-button{
+    background: var(--tertiary-color);
+}
+.quaternary-button{
+    background: var(--quaternary-color);
+}
+
+.primary-text{
+    color: var(--primary-color) !important;
+}
+.secondary-text{
+    color: var(--secondary-color) !important;
+}
+.tertiary-text{
+    color: var(--tertiary-color) !important;
+}
+.quaternary-text{
+    color: var(--quaternary-color) !important;
+}
+
+.primary-bg{
+    background: var(--primary-color);
+}
+.secondary-bg{
+    background: var(--secondary-color);
+}
+.tertiary-bg{
+    background: var(--tertiary-color);
+}
+.quaternary-bg{
+    background: var(--quaternary-color);
+}
+
+
+.everything-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.fixed{
+    position: fixed;
+}

@@ -1,0 +1,40 @@
+<div class="card p-2 book-card mt-2">
+    <div class="row">
+      <div class="col-md-2" style="display: flex; justify-content: center;">
+        <img 
+          [src]="getImageData(book.image)" 
+          [alt]="book.name"
+          class="book-image"
+        >
+      </div>
+      <div class="col-md-8 card-body border-start">
+        <table class="" border="0">
+          <tr>
+            <td>
+              <h5>
+                {{book.name}}
+              </h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="caption text-secondary" style="font-size: 12px;">
+                {{book.author}}
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="caption">
+                {{book.copiesAvailable}} copies left
+              </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-2 card-buttons">
+        <button class="btn btn-warning" onclick="alert('yupp')">Edit</button>
+        <button class="btn btn-danger ms-1">Delete</button>
+      </div>
+    </div>
+  </div>
