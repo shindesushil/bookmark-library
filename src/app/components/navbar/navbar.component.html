@@ -1,0 +1,53 @@
+<div class="nav-container pb-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 pt-2">
+              <ul class="nav float-start">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/">Bookmark Libray.</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-8 pt-3">
+              <ul class="main-nav nav nav-underline justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link" 
+                    routerLinkActive="active" 
+                    [routerLinkActiveOptions] = "{exact: true}"
+                    [routerLink]="'/'"
+                  >Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLinkActive="active" [routerLink]="'/books'">Books</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" routerLinkActive="active" [routerLink]="'/authors'">Authors</a>
+                </li> -->
+                <li class="nav-item" *ngIf="userService.isLoggedIn() && !userService.getSubscriptionDetails()">
+                  <a class="nav-link" routerLinkActive="active" [routerLink]="'/pricing'">Pricing</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-2 pt-2">
+              <ul class="nav float-end" *ngIf="!userService.isLoggedIn()">
+                <li class="nav-item">
+                  <a class="nav-link btn secondary-button" [routerLink]="'/login'">Login</a>
+                </li>
+              </ul>
+              <ul class="nav float-end" *ngIf="userService.isLoggedIn()">
+                <li class="nav-item dropdown">
+                  <a class="nav-link btn secondary-button dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{"Hello, " + userService.getUserDetails()?.firstName + "."}}
+                  </a>
+                  <ul class="dropdown-menu primary-bg">
+                    <li><a class="dropdown-item" [routerLink]="'/profile'">Profile</a></li>
+                    <li><a class="dropdown-item" [routerLink]="'/my-books'">My Books</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="nav-link btn secondary-button" (click)="handleLogout()">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>

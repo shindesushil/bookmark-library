@@ -1,0 +1,83 @@
+<div class="container pb-4">
+  <div class="tertiary-bg py-2 everything-center" *ngIf="!userService.isLoggedIn()">
+    <h6><a routerLink="/login">Login</a> to start reading!</h6>
+  </div>
+  <div class="tertiary-bg py-2 everything-center" *ngIf="userService.isLoggedIn() && !userService.hasSubscription()">
+    <h6>
+      One final step to get started. <a routerLink="/pricing">Choose a Plan.</a>
+    </h6>
+  </div>
+    <h3 class="text-center mt-4">Books For You.</h3>
+  
+    <div class="row pt-4">
+  
+      <div class="col-md-4 col-sm-12 mt-4" *ngFor="let book of allBooks">
+        <div class="card book">
+          <div class="card-img">
+            <img class="" [src]="'data:image/jpeg;base64,' + getbase64(book.image)" alt="">
+          </div>
+          <div class="card-body everything-center flex-column">
+            <h5 class="card-title m-0 p-0">
+              {{book.name}}
+            </h5>
+            <p class="m-0 p-0 author-name">
+              ({{book.author}})
+            </p>
+            <div class="desc mt-1 text-secondary">
+              <p class="card-text text-center description">
+                {{book.description}}
+              </p>
+            </div>
+            
+            <div 
+              *ngIf="userService.isLoggedIn() && userService.hasSubscription() && !isInMyBooks(book.id)" 
+              class="borrow-button primary-bg py-2"
+              (click)="handleBorrow(book)"
+            >
+              BORROW.
+              <div class="copies">{{book.copiesAvailable}} copies available.</div>
+            </div>
+            <div 
+              *ngIf="userService.isLoggedIn() && userService.hasSubscription() && isInMyBooks(book.id)" 
+              class="borrow-button secondary-bg py-2"
+            >
+              <span>Already in <a routerLink="/my-books">Your Books.</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img src="../assets/books.jpg" alt="">
+          <div class="card-body everything-center flex-column">
+            <h5 class="card-title">
+              Title Here
+            </h5>
+            <p class="card-text text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque iusto sapiente in magnam hic amet vitae facilis est eius dolorum!
+            </p>
+            <a href="#" class="btn primary-button">Borrow</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img src="../assets/books.jpg" alt="">
+          <div class="card-body everything-center flex-column">
+            <h5 class="card-title">
+              Title Here
+            </h5>
+            <p class="card-text text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque iusto sapiente in magnam hic amet vitae facilis est eius dolorum!
+            </p>
+            <a href="#" class="btn primary-button">Borrow</a>
+          </div>
+        </div>
+      </div> -->
+  
+    </div>
+  
+  </div>

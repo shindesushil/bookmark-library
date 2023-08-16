@@ -1,0 +1,88 @@
+<div class="container py-4">
+    <h3 class="text-center mt-4" *ngIf="route.url === '/my-books'">Your Books.</h3>
+  
+    <div class="row pt-4">
+  
+      <div class="col-md-4 col-sm-12 mt-4" *ngFor="let book of myBooks">
+        <div class="card book">
+          <div class="card-img">
+            <img class="" [src]="'data:image/jpeg;base64,' + getbase64(book.details.image)" alt="">
+          </div>
+          <div class="card-body everything-center flex-column">
+            <h5 class="card-title m-0 p-0">
+              {{book.details.name}}
+            </h5>
+            <p class="m-0 p-0 author-name">
+              ({{book.details.author}})
+            </p>
+            <div class="desc mt-1 text-secondary">
+              <p class="card-text text-center description">
+                {{book.details.description}}
+              </p>
+            </div>
+            
+            <div 
+              class="borrow-button py-2"
+              [ngClass]="book.status === 'Pending Approval' ? 'pending' : (book.status === 'Approved Borrow') ? 'tertiary-bg' : 'secondary-bg' "
+            >
+              <span style="display: flex;justify-content: space-around;font-size:15px">
+                {{book.status}}
+                <div class="help-text p-2" [id]="'help-'+book.details.id">
+                  Your book is pending for the approval by The Bookmark Library admin (librarian).
+                </div>
+                <div 
+                  *ngIf="book.status === 'Pending Approval'" 
+                  (mouseover)="toggleHelpText(book.details.id)"
+                  (mouseout)="toggleHelpText(book.details.id)"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                  </svg>
+                </div>
+              </span>
+              <a 
+                class="text-danger link" 
+                style="letter-spacing: 0px; font-size:12px;"
+                (click)="handleReturn(book)"
+                *ngIf="book.status !== 'Pending Return'"
+              >Return Book</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img src="../assets/books.jpg" alt="">
+          <div class="card-body everything-center flex-column">
+            <h5 class="card-title">
+              Title Here
+            </h5>
+            <p class="card-text text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque iusto sapiente in magnam hic amet vitae facilis est eius dolorum!
+            </p>
+            <a href="#" class="btn primary-button">Borrow</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 col-sm-12">
+        <div class="card">
+          <img src="../assets/books.jpg" alt="">
+          <div class="card-body everything-center flex-column">
+            <h5 class="card-title">
+              Title Here
+            </h5>
+            <p class="card-text text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque iusto sapiente in magnam hic amet vitae facilis est eius dolorum!
+            </p>
+            <a href="#" class="btn primary-button">Borrow</a>
+          </div>
+        </div>
+      </div> -->
+  
+    </div>
+  
+  </div>

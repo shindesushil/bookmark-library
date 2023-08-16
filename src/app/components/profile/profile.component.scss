@@ -1,0 +1,29 @@
+.profile{
+    min-height: 90vh;
+    .row{
+        height: 100%;
+        .profile-section{
+            display: flex;
+            align-items: center;
+            .profile-photo{
+                border-radius: 50%;
+                overflow: hidden;
+                // padding: 15px;
+                position: relative;
+                cursor: pointer;
+                img{
+                    height: 30vh;
+                    width: 30vh;
+                } 
+            }
+        }
+        .my-section{
+            .nav-link{
+                color: var(--primary-color);
+            }
+            .nav-link.active{
+                color: #000;
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+<div class="container pt-4 mt-4">
+    <div class="book pt-4 mt-4">
+       <div class="row">
+        <div class="col-md-6 login-image everything-center">
+            <div class="login-quote everything-center flex-column p-4">
+                <p class="m-0 p-0">
+                    "That’s the thing about books. They let you travel without moving your feet." 
+                </p>
+                <p class="m-0 p-0 author ">
+                    - Jhumpa Lahiri, The Namesake
+                </p>
+            </div>
+            <img src="../../../assets/couple-reading.avif" alt="">
+        </div>
+        <div class="col-md-6 everything-center">
+            <form 
+                class="form border-start ps-4 login-form"
+                [formGroup]="registerForm" 
+                (ngSubmit)="handleSubmit(registerForm)"
+            >
+                <h3>Welcome to <br> The Bookmark Library.</h3>
+                {{firstName}}
+                <p class="m-0 pb-4">Fill up your details to start reading!</p>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group py-2">
+                            <input 
+                                type="text" 
+                                placeholder="First Name" 
+                                class="form-control"
+                                [formControlName]="'firstName'"
+                            >
+                            <p 
+                                class="m-0 p-0 text-danger error"
+                                *ngIf="registerForm.get('firstName')?.errors?.required && registerForm.get('firstName')?.touched"
+                            >First Name Required</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group py-2">
+                            <input 
+                                type="text" 
+                                placeholder="Last Name" 
+                                class="form-control"
+                                [formControlName]="'lastName'"
+                            >
+                            <p 
+                                class="m-0 p-0 text-danger error"
+                                *ngIf="registerForm.get('lastName')?.errors?.required && registerForm.get('lastName')?.touched"
+                            >Last Name Required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group py-2">
+                    <input 
+                        type="text" 
+                        placeholder="Email" 
+                        class="form-control"
+                        [formControlName]="'email'"
+                    >
+                    <p 
+                        class="m-0 p-0 text-danger error"
+                        *ngIf="registerForm.get('email')?.errors?.required && registerForm.get('email')?.touched"
+                    >Email Required</p>
+                    <p 
+                        class="m-0 p-0 text-danger error"
+                        *ngIf="registerForm.get('email')?.errors?.email && registerForm.get('email')?.touched"
+                    >Invalid Email</p>
+                </div>
+                <div class="form-group py-2">
+                    <input 
+                        type="password" 
+                        placeholder="Password" 
+                        class="form-control"
+                        [formControlName]="'password'"
+                    >
+                    <p 
+                        class="m-0 p-0 text-danger error"
+                        *ngIf="registerForm.get('password')?.errors?.required && registerForm.get('password')?.touched"
+                    >Password Required</p>
+                </div>
+                <div class="form-group py-2">
+                    <input 
+                        type="password" 
+                        placeholder="Confirm Password" 
+                        class="form-control"
+                        [formControlName]="'cpassword'"
+                    >
+                    <p 
+                        class="m-0 p-0 text-danger error"
+                        *ngIf="registerForm?.errors?.passwordNotMatched && registerForm.get('cpassword')?.touched"
+                    >Password Not Matching</p>
+                </div>
+                
+                <div class="form-group py-2">
+                    <button type="submit" class="btn primary-button" [disabled]="registerForm.invalid">Submit</button>
+                </div>
+                <p class="mt-4">
+                    Already have an account?
+                    <a routerLink="/login" class="link-secondary">Login!</a>
+                </p>
+            </form>
+        </div>
+       </div>
+    </div>
+</div>
+
+<br><br>

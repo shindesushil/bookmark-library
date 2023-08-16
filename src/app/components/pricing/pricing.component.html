@@ -1,0 +1,25 @@
+<div class="container mt-4 pt-4">
+    <div class="money-quote pt-4 border-bottom border-top">
+        <p class="quote text-center pt-4">
+            "On books and friends I spend my money;For stones and bricks I haven't any."
+        </p>
+        <p class="author text-center pb-4">
+            - Ruskin Bond
+        </p>
+    </div> <br>
+    <h3 class="text-center mt-4">Plans Available.</h3>
+    <div class="row py-4">
+        <div class="col-md-4 col-sm-12 py-4" *ngFor="let sub of allSubs">
+           <div class="card sub-card primary-bg border-0" (click)="handlePayment(sub.id)">
+                <div class="duration everything-center flex-column pt-0">
+                    {{sub.duration}} 
+                    <br>
+                    <span class="text">MONTHS</span>
+                </div>
+                <h4 class="text-center pb-0 m-0 mt-4 ">Only at {{sub.price}} Rs.</h4>
+                <p class="text-center px-4 pt-2">Get access to all the books at The Bookmark Library!</p>
+           </div>
+        </div>
+    </div>
+    <br><br>
+</div>

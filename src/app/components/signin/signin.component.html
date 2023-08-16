@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="book">
+       <div class="row">
+        <div class="col-md-6 login-image everything-center">
+            <div class="login-quote p-4">
+                <p class="m-0 p-0">
+                    "If you don’t like to read, you haven’t found the right book."
+                </p>
+                <p class="m-0 p-0 author text-secondary">
+                    - J.K. Rowling
+                </p>
+            </div>
+            <img src="../../../assets/login-image.jpg" alt="">
+        </div>
+        <div class="col-md-6 everything-center">
+            <form action="#" class="form border-start ps-4 login-form">
+                <h3>Welcome Back.</h3>
+                <p class="m-0 pb-4">Fill up your details to start reading!</p>
+                
+                <div class="form-group py-2">
+                    <input type="text" 
+                        placeholder="Email" 
+                        class="form-control" 
+                        name="username"
+                        [(ngModel)]="username"
+                    >
+                </div>
+                <div class="form-group py-2">
+                    <input type="password" 
+                        placeholder="Password" 
+                        class="form-control" 
+                        name="password"
+                        [(ngModel)]="password"
+                    >
+                </div>
+                <a routerLink="#" class="link-secondary float-end">forgot password?</a>
+                <div class="form-group py-2">
+                    <button class="btn primary-button" (click)="handleLogin()">Login</button>
+                </div>
+                <p class="mt-4">
+                    New to Bookmark Library?
+                    <a routerLink="/register" class="link-secondary">Create an account!</a>
+                </p>
+            </form>
+        </div>
+       </div>
+    </div>
+</div>

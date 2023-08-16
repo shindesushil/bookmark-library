@@ -1,0 +1,57 @@
+.container{
+    position: relative;
+    min-height: 40vh;
+    
+    .book{
+        min-height: 100%;
+        width: 100%;
+        // display: flex;
+        // background: red;
+        justify-content: center;
+
+
+
+        .login-image{
+
+            .login-quote{
+                position: absolute;
+                font-size: 3vw;
+                top: 15%;
+                z-index: 10;
+                background-color: #ffb6b9cf;
+                border-radius: 20px;
+                // font-family: 'Borel', cursive;
+                font-weight: 300;
+
+                .author{
+                    font-size: 1.2rem;
+                }
+
+            }
+
+            img{
+                height: 80%;
+                width: auto;
+            }
+        }
+
+        .login-form{
+            width: 70%;
+
+            .form-control{
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-radius: 0px;
+            }
+
+            .form-control:focus{
+                box-shadow: 0 0 0 0.1rem var(--primary-color);
+                border-color: var(--primary-color);
+            }
+
+        }
+
+    }
+
+}

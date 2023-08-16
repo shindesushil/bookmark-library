@@ -1,0 +1,49 @@
+<div class="container mt-4">
+    <div class="profile mt-4">
+        <div class="row mt-4">
+            <div class="col-md-4 col-sm-12 profile-section flex-column border-end">
+                <div class="profile-photo border mt-4">
+                    <img [src]="userService.getDP() ? userService.getDP() : '../../../assets/default-user.png'" alt=""> 
+                </div>
+                <button rel="stylesheet" 
+                    style="font-size: 12px;" 
+                    class="btn btn-link link-secondary"
+                    (click)="file.click()"
+                >Update Picture</button>
+                <input 
+                    type="file" 
+                    style="display: none;" 
+                    #file
+                    (change)="handleDpChange($event)"
+                >
+                <h4 class="mt-3">
+                    {{userDetails.firstName + ' ' + userDetails.lastName}}
+                </h4>
+                <p class="m-0 p-0">
+                    {{userDetails.username}}
+                </p>
+            </div>
+            <div class="col-md-8 col-sm-12 my-section">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a 
+                        class="nav-link" 
+                        aria-current="page"
+                        routerLink="my-plan"
+                        routerLinkActive="active" 
+                        [routerLinkActiveOptions] = "{exact: true}"
+                    >My Plan</a>
+                    </li>
+                    <li class="nav-item">
+                      <a 
+                        class="nav-link" 
+                        routerLink="my-books"
+                        routerLinkActive="active" 
+                        [routerLinkActiveOptions] = "{exact: true}"
+                    >My Books</a>
+                    </li>
+                </ul>
+                <router-outlet></router-outlet>
+            </div>
+    </div>
+</div>

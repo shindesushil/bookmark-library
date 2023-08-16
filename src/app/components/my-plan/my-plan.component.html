@@ -1,0 +1,19 @@
+<div *ngIf="!subscription">
+    <div class="container py-4">
+        <div class="card p-4">
+            <h5>Your Don't Have Any Active Subscription Currently. 
+                <br> You Can Go Ahead And <a routerLink="/pricing">Choose A Plan.</a> </h5>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="subscription">
+    <div class="container py-4">
+        <div class="card p-4">
+            <p>Duartion : {{subscription.details.duration}} Months</p>
+            <p>Expires On : {{getFormatedDate()}}</p>
+            <p>Amount Paid : {{subscription.details.price}} Rs</p>
+        </div>
+    </div>
+</div>
+
